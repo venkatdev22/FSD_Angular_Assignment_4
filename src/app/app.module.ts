@@ -7,7 +7,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { MovieComponent } from './movie/movie.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { AppRoutingModule } from './/app-routing.module';
- 
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
@@ -19,8 +19,8 @@ import { AppRoutingModule } from './/app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule 
-     
+    AppRoutingModule, 
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
