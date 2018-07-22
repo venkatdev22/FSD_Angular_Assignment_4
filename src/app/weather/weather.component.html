@@ -1,3 +1,13 @@
 <p>
   weather works!
 </p> 
+<div>
+  <input #cityTxt/>
+  <button (click)="onClickWeatherSubmit(cityTxt.value); cityTxt.value=''">
+    Submit
+  </button> 
+  <div> 
+  <p>City, Country :<span>{{city}} {{country}} </span></p> 
+  </div>
+</div>
+  
