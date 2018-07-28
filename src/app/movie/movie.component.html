@@ -1,3 +1,16 @@
 <p>
   movie works!
 </p>
+<div>
+  <input #titleTxt/> 
+  <br/>
+  <button (click)="onClickMovieSubmit(titleTxt.value); titleTxt.value='';">
+    Submit
+  </button> 
+   
+  <div> 
+  <p>Title : {{title}}  </p> 
+  <p>Box Office : {{boxOffice }} </p>  
+  <p>Released:{{released }} </p>
+</div>
+</div>

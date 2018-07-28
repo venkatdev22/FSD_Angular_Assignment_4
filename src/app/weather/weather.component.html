@@ -2,12 +2,16 @@
   weather works!
 </p> 
 <div>
-  <input #cityTxt/>
-  <button (click)="onClickWeatherSubmit(cityTxt.value); cityTxt.value=''">
+  <input #cityTxt placeholder="Nome"/>
+  <input #stateCodeTxt placeholder="KA"/>
+  <br/>
+  <button (click)="onClickWeatherSubmit(cityTxt.value,stateCodeTxt.value); cityTxt.value='';stateCodeTxt.value='' ">
     Submit
-  </button> 
+  </button>  
   <div> 
-  <p>City, Country :<span>{{city}} {{country}} </span></p> 
-  </div>
+  <p>City, State, Country : <span>{{city}} {{state}} {{country}} </span></p> 
+  <p>Current Condition : {{condition }}</p>
+  <p>Current Temperature : {{temperature}} </p>  
+</div>
 </div>
   

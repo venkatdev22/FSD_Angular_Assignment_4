@@ -1,3 +1,14 @@
 <p>
   currency works!
 </p>
+<div>
+  <input #currencyTxt disabled="true" value="USD"/> 
+  <br/>
+  <button (click)="onClickCurrencySubmit(currencyTxt.value);">
+    Submit
+  </button> 
+  <div> 
+  <p>Currency : {{currencyTxt.value }}  </p> 
+  <p>Rate : {{ rate }} </p> 
+</div>
+</div>

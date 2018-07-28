@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../app/shared.service';
-import { WeatherDetails } from '../weather/weatherdetails';
-import { Place } from '../weather/weatherdetails';
+import { WeatherDetails } from '../weather/weatherdetails'; 
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -12,33 +11,33 @@ import { Observable, of } from 'rxjs';
 export class WeatherComponent implements OnInit {
  
   city:string;
+  state:string;
   country:string;
+  condition:string;
+  temperature:string;
 
   constructor(public sharedService: SharedService) {
-    sharedService.getWeatherDetails('san%20francisco').subscribe(p => { 
-      //Log weather service API response  
-      // console.log(p.query.results.place);
-      // this.weatherDetail = p; 
-      // this.cityDetail=p.query.results.place
-    }); 
+    
   }
 
   ngOnInit() {
   }
 
-  onClickWeatherSubmit(city: string)
-  { 
-    //console.log(city); 
-    this.sharedService.getWeatherDetails2('san%20francisco').subscribe(p => { 
+  onClickWeatherSubmit(city: string, statecode:string)
+  {  
+    this.sharedService.getWeatherDetails(city,statecode).subscribe(p => { 
       //Log weather service API response  
-      this.country=p.query.results.place.country.content ; 
-      this.city=p.query.results.place.name;
+      this.country=p.query.results.channel.location.country  ; 
+      this.city=p.query.results.channel.location.city ;
+      this.state=p.query.results.channel.location.region ;
+      this.condition=p.query.results.channel.item.condition.text;  
+      this.temperature =p.query.results.channel.item.condition.temp ;
     });  
   }
 
-  getHeroes(city: string): Observable<string> { 
-    return of(this.city);
-  }
+  // getHeroes(city: string): Observable<string> { 
+  //   return of(this.city);
+  // }
 
 }
 
